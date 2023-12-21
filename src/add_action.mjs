@@ -1,5 +1,8 @@
-import { startTask } from '../task/task.mjs'
+import { startTask } from './util_task.mjs'
 
+/**
+ * Action
+ */
 export let lastAction = Symbol()
 export let actionId = Symbol()
 

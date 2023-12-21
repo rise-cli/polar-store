@@ -1,4 +1,4 @@
-import { ListenerQueue } from './listenerQueue.mjs'
+import { ListenerQueue } from '../src/util_listenerqueue.mjs'
 
 import { before, after, describe, it } from 'node:test'
 import assert from 'node:assert'

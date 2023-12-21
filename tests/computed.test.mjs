@@ -2,7 +2,8 @@ import FakeTimers from '@sinonjs/fake-timers'
 import { describe, before, after, it } from 'node:test'
 import assert from 'node:assert'
 
-import { atom, onMount, STORE_UNMOUNT_DELAY, computed } from '../index.mjs'
+import { atom, onMount, computed } from '../index.mjs'
+const STORE_UNMOUNT_DELAY = 1000
 
 describe('computed', () => {
     let clock

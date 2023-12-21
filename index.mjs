@@ -1,12 +1,34 @@
-export { action, actionId, lastAction } from './src/action/action.mjs'
-export { atom } from './src/atom/atom.mjs'
-export { computed } from './src/computed/computed.mjs'
-export { atomDeep, getPath, setPath } from './src/atomDeep/atomDeep.mjs'
+import { atom, atomDeep, atomMap } from './src/atom.mjs'
+import { startTask, task, cleanTasks, allTasks } from './src/util_task.mjs'
+import { getPath, setPath } from './src/util_path.mjs'
+import { listenKeys } from './src/add_listenKeys.mjs'
+import { on, onMount, onNotify } from './src/add_lifecycle.mjs'
+import { action, lastAction, actionId } from './src/add_action.mjs'
+import { computed } from './src/add_computed.mjs'
+
 export {
+    // atom
+    atom,
+    atomDeep,
+    atomMap,
+    // task
+    startTask,
+    task,
+    cleanTasks,
+    allTasks,
+    // path
+    getPath,
+    setPath,
+    // listenkeys
+    listenKeys,
+    // lifecycle
+    on,
     onMount,
     onNotify,
-    STORE_UNMOUNT_DELAY
-} from './src/lifecycle/lifecycle.mjs'
-export { listenKeys } from './src/listenKeys/listenKeys.mjs'
-export { atomMap } from './src/atomMap/atomMap.mjs'
-export { allTasks, cleanTasks, startTask, task } from './src/task/task.mjs'
+    // action
+    action,
+    lastAction,
+    actionId,
+    // computed
+    computed
+}

@@ -1,6 +1,10 @@
-import { ListenerQueue } from './listenerQueue.mjs'
+import { getPath, setPath } from './util_path.mjs'
+import { ListenerQueue } from './util_listenerqueue.mjs'
 const globalListenerQueue = new ListenerQueue()
 
+/**
+ * Internal Atom Class
+ */
 class Atom {
     listeners = []
     level = 0
@@ -88,6 +92,42 @@ class Atom {
     off = () => {}
 }
 
+/**
+ * Atoms
+ */
 export let atom = (initialValue, level) => {
     return new Atom(initialValue, level)
+}
+
+export function atomDeep(initial = {}) {
+    let $deepMap = new Atom(initial)
+    $deepMap.setKey = (key, value) => {
+        if (getPath($deepMap.value, key) !== value) {
+            $deepMap.value = setPath($deepMap.value, key, value)
+            $deepMap.notify(key)
+        }
+    }
+    return $deepMap
+}
+
+export let atomMap = (value = {}) => {
+    let map = new Atom(value)
+
+    map.setKey = function (key, newValue) {
+        if (typeof newValue === 'undefined') {
+            if (key in map.value) {
+                map.value = { ...map.value }
+                delete map.value[key]
+                map.notify(key)
+            }
+        } else if (map.value[key] !== newValue) {
+            map.value = {
+                ...map.value,
+                [key]: newValue
+            }
+            map.notify(key)
+        }
+    }
+
+    return map
 }

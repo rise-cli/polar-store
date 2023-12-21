@@ -69,16 +69,6 @@ export let onMount = (store, initialize) => {
             }, STORE_UNMOUNT_DELAY)
         }
 
-        // if (process.env.NODE_ENV !== 'production') {
-        //     let originClean = store[clean]
-        //     store[clean] = () => {
-        //         for (let destroy of store.events[UNMOUNT]) destroy()
-        //         store.events[UNMOUNT] = []
-        //         store.active = false
-        //         originClean()
-        //     }
-        // }
-
         return () => {
             store.listen = originListen
             store.off = originOff

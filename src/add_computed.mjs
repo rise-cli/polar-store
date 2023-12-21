@@ -1,5 +1,5 @@
-import { atom } from '../atom/atom.mjs'
-import { onMount } from '../lifecycle/lifecycle.mjs'
+import { atom } from './atom.mjs'
+import { onMount } from './add_lifecycle.mjs'
 
 export let computed = (stores, cb) => {
     if (!Array.isArray(stores)) stores = [stores]

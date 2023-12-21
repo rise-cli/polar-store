@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert'
 
-import { getPath, setPath } from './path.mjs'
+import { getPath, setPath } from '../src/util_path.mjs'
 
 test('path evaluates correct value', () => {
     let exampleObj = {
