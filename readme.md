@@ -4,6 +4,10 @@ a refactor of nanostores:
 
 https://github.com/nanostores/nanostores
 
+# Install
+```
+curl https://raw.githubusercontent.com/rise-cli/polar-store/main/polar-store.js > polar-store.js
+```
 # Example
 
 ```js
